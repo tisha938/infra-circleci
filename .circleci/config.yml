@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Deploy Stack
           command: |
-            cdk deploy --all
+            cdk deploy AlbStack
 
   manual_approval:
     type: approval
