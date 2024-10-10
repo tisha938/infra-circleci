@@ -33,5 +33,6 @@ workflows:
   deploy:
     jobs:
       - build:
+      - manual_approval:
           requires:
-            - manual_approval
+            - build
