@@ -6,6 +6,9 @@ executors:
       - image: circleci/node:14
 
 jobs:
+  manual_approval:
+    type: approval
+
   build:
     executor: node-executor
     environment:
@@ -28,14 +31,11 @@ jobs:
           command: |
             cdk deploy AlbStack
 
-  manual_approval:
-    type: approval
-
 workflows:
   version: 2
   deploy:
     jobs:
-      - build
-      - manual_approval:
+      - manual_approval
+      - build:
           requires:
-            - build
+            - manual_approval
