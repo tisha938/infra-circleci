@@ -1,0 +1,16 @@
+{
+  "services": [
+   
+    {
+      "hostHeader": "metabase.gkmit.co",
+      "name": "ALPHA-PROD-METABASE",
+      "target_port": 8005,
+      "priority": 5,
+      "healthCheck": {
+        "path": "/",
+        "statusCode": "200"
+      }
+    }
+  ]
+}
+  
