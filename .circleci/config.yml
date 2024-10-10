@@ -28,11 +28,14 @@ jobs:
           command: |
             cdk deploy --all
 
+  manual_approval:
+    type: approval
+
 workflows:
   version: 2
   deploy:
     jobs:
-      - build:
+      - build
       - manual_approval:
           requires:
             - build
