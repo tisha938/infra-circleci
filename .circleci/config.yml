@@ -3,7 +3,7 @@ version: 2.1
 executors:
   amazon-linux-executor:
     docker:
-      - image: amazonlinux:latest  # Use the Amazon Linux image
+      - image: amazonlinux:latest 
 
 jobs:
   manual_approval:
