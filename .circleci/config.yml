@@ -27,11 +27,11 @@ jobs:
           name: Build
           command: npm run build
       - run:
-          name: Deploy Stack
+          name: Deploy AlbStack
           command: |
             cdk deploy AlbStack
-       - run:
-          name: Deploy Stack
+      - run:
+          name: Deploy TargetGroupStack
           command: |
             cdk deploy TargetGroupStack
 
