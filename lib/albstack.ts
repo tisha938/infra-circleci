@@ -56,24 +56,24 @@ export class AlbStack extends cdk.Stack {
     });
 
    
-    this.httpListener.addAction('RedirectToHttps', {
-        action: elbv2.ListenerAction.redirect({
-            protocol: 'HTTPS',
-            port: '443',
-            permanent: true,
-        }),
-    });
+    // this.httpListener.addAction('RedirectToHttps', {
+    //     action: elbv2.ListenerAction.redirect({
+    //         protocol: 'HTTPS',
+    //         port: '443',
+    //         permanent: true,
+    //     }),
+    // });
    
-    this.httpsListener = this.loadBalancer.addListener("HttpsListener", {
-      port: 443,
-      open: true,
-      protocol: ApplicationProtocol.HTTPS,
-      certificates: [{ certificateArn: 'arn:aws:acm:us-east-1:008971679473:certificate/d035d47f-37dd-46ff-9ded-09cf05475134' }],
-      defaultAction: elbv2.ListenerAction.fixedResponse(200, {
-        contentType: "text/plain", 
-        messageBody: "Hello, this is a plain text response.", 
-      }),
-    });
+    // this.httpsListener = this.loadBalancer.addListener("HttpsListener", {
+    //   port: 443,
+    //   open: true,
+    //   protocol: ApplicationProtocol.HTTPS,
+    //   certificates: [{ certificateArn: 'arn:aws:acm:us-east-1:008971679473:certificate/d035d47f-37dd-46ff-9ded-09cf05475134' }],
+    //   defaultAction: elbv2.ListenerAction.fixedResponse(200, {
+    //     contentType: "text/plain", 
+    //     messageBody: "Hello, this is a plain text response.", 
+    //   }),
+    // });
 
     
    
