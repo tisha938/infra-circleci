@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Deploy AlbStack
           command: |
-            cdk deploy --all
+            cdk deploy TargetGroupStack
 
 workflows:
   version: 2
