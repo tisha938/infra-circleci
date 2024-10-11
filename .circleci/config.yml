@@ -1,22 +1,27 @@
 version: 2.1
 
 executors:
-  node-executor:
+  amazon-linux-executor:
     docker:
-      - image: circleci/node:latest
+      - image: amazonlinux:latest  # Use the Amazon Linux image
 
 jobs:
   manual_approval:
     type: approval
 
   build:
-    executor: node-executor
+    executor: amazon-linux-executor
     environment:
       AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
       AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
       AWS_DEFAULT_REGION: ap-south-1
     steps:
       - checkout
+      - run:
+          name: Install Node.js and npm
+          command: |
+            sudo yum update -y
+            sudo yum install -y nodejs npm  
       - run:
           name: Install AWS CDK
           command: sudo npm install -g aws-cdk
@@ -30,7 +35,6 @@ jobs:
           name: Deploy AlbStack
           command: |
             cdk deploy --all
-      
 
 workflows:
   version: 2
