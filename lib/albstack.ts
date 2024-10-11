@@ -68,7 +68,7 @@ export class AlbStack extends cdk.Stack {
       port: 443,
       open: true,
       protocol: ApplicationProtocol.HTTPS,
-      certificates: [{ certificateArn: 'arn:aws:acm:ap-south-1:008971679473:certificate/56c98b91-d6d1-430f-b704-6ba8d40dcbff' }],
+      certificates: [{ certificateArn: 'arn:aws:acm:us-east-1:008971679473:certificate/d035d47f-37dd-46ff-9ded-09cf05475134' }],
       defaultAction: elbv2.ListenerAction.fixedResponse(200, {
         contentType: "text/plain", 
         messageBody: "Hello, this is a plain text response.", 
