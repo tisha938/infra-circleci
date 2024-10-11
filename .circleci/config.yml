@@ -40,7 +40,7 @@ jobs:
       - run:
           name: Deploy AlbStack
           command: |
-            cdk deploy AlbStack --require-approval never 
+            cdk deploy --all --require-approval never 
 
 workflows:
   version: 2
