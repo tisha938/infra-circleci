@@ -20,11 +20,11 @@ jobs:
       - run:
           name: Install Node.js and npm
           command: |
-            sudo yum update -y
-            sudo yum install -y nodejs npm  
+            yum update -y
+            yum install -y nodejs npm  # Install Node.js and npm
       - run:
           name: Install AWS CDK
-          command: sudo npm install -g aws-cdk
+          command: npm install -g aws-cdk  
       - run:
           name: Install Dependencies
           command: npm install
